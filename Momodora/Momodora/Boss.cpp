@@ -6,7 +6,7 @@
 
 void Boss::Init()
 {
-	// º¸½ºÀÇ À§Ä¡´Â Body°¡ ±âÁØÀÌÁö¸¸ Rect´Â °¡½¿À¸·Î Á¤ÇÑ´Ù
+	// ë³´ìŠ¤ì˜ ìœ„ì¹˜ëŠ” Bodyê°€ ê¸°ì¤€ì´ì§€ë§Œ RectëŠ” ê°€ìŠ´ìœ¼ë¡œ ì •í•œë‹¤
 	mName = "Boss";
 	mX = 0;// WINSIZEX / 2;
 	mY = 0;// WINSIZEY / 2;
@@ -19,6 +19,8 @@ void Boss::Init()
 
 	mFrameX = 0;
 	mFrameTime = 0.f;
+
+	test = 0;
 }
 
 void Boss::Release()
@@ -27,21 +29,7 @@ void Boss::Release()
 
 void Boss::Update()
 {
-<<<<<<< Updated upstream
-	MotionFrame();
-
-	mFrameTime += TIME->DeltaTime();
-	if (mFrameTime >= 0.2f)
-	{
-		mFrameTime = 0.f;
-		mFrameX++;
-
-		if (mFrameX >= 5)
-			mFrameX = 0;
-	}
-=======
 	OBJECTMANAGER->Update();
->>>>>>> Stashed changes
 }
 
 void Boss::Render(HDC hdc)
@@ -71,7 +59,7 @@ void Boss::Render(HDC hdc)
 
 void Boss::ImageSetting()
 {
-	// ¸öÅë
+	// ëª¸í†µ
 	mBody.image = IMAGEMANAGER->FindImage(L"Boss_Body");
 	mBody.x = 47 * 2;
 	mBody.y = 144 * 2;
@@ -82,7 +70,7 @@ void Boss::ImageSetting()
 	mBody.moveTime = 0.f;
 	mBody.moveCount = 0;
 
-	// µŞ¸Ó¸®
+	// ë’·ë¨¸ë¦¬
 	mBackHair.image = IMAGEMANAGER->FindImage(L"Boss_BackHair");
 	mBackHair.x = 7 * 2;
 	mBackHair.y = 69 * 2;
@@ -93,7 +81,7 @@ void Boss::ImageSetting()
 	mBackHair.moveTime = 0.f;
 	mBackHair.moveCount = 0;
 
-	// ¸Ó¸®
+	// ë¨¸ë¦¬
 	mHead.image = IMAGEMANAGER->FindImage(L"Boss_Head");
 	mHead.x = 5 * 2;
 	mHead.y = 4 * 2;
@@ -104,7 +92,7 @@ void Boss::ImageSetting()
 	mHead.moveTime = 0.f;
 	mHead.moveCount = 0;
 
-	// °¡½¿
+	// ê°€ìŠ´
 	mChest.image = IMAGEMANAGER->FindImage(L"Boss_Chest");
 	mChest.x = 54 * 2;
 	mChest.y = 194 * 2;
@@ -115,7 +103,7 @@ void Boss::ImageSetting()
 	mChest.moveTime = 0.f;
 	mChest.moveCount = 0;
 
-	// ´«¾Ë
+	// ëˆˆì•Œ
 	mEyes.image = IMAGEMANAGER->FindImage(L"Boss_Eyes");
 	mEyes.x = 74 * 2;
 	mEyes.y = 112 * 2;
@@ -126,7 +114,7 @@ void Boss::ImageSetting()
 	mEyes.moveTime = 0.f;
 	mEyes.moveCount = 0;
 	
-	// ´«µ¿ÀÚ
+	// ëˆˆë™ì
 	mPupil.image = IMAGEMANAGER->FindImage(L"Boss_Pupil");
 	mPupil.x = 80 * 2;
 	mPupil.y = 114 * 2;
@@ -137,7 +125,7 @@ void Boss::ImageSetting()
 	mPupil.moveTime = 0.f;
 	mPupil.moveCount = 0;
 
-	// ¿ŞÆÈ
+	// ì™¼íŒ”
 	mLeftArm.image = IMAGEMANAGER->FindImage(L"Boss_LeftArm");
 	mLeftArm.x = 45 * 2;
 	mLeftArm.y = 175 * 2;
@@ -148,7 +136,7 @@ void Boss::ImageSetting()
 	mLeftArm.moveTime = 0.f;
 	mLeftArm.moveCount = 0;
 
-	// ¿À¸¥ÆÈ
+	// ì˜¤ë¥¸íŒ”
 	mRightArm.image = IMAGEMANAGER->FindImage(L"Boss_RightArm");
 	mRightArm.x = 123 * 2;
 	mRightArm.y = 175 * 2;
@@ -162,8 +150,8 @@ void Boss::ImageSetting()
 
 void Boss::MotionFrame()
 {
-	// ¸Ó¸®
-	if (mHead.move)		// trueÀÏ ¶§ ³»·Á¿À´Â ¸ğ¼Ç
+	// ë¨¸ë¦¬
+	if (mHead.move)		// trueì¼ ë•Œ ë‚´ë ¤ì˜¤ëŠ” ëª¨ì…˜
 	{
 		mHead.moveTime += TIME->DeltaTime();
 
@@ -201,8 +189,8 @@ void Boss::MotionFrame()
 	mHead.rc = RectMakeCenter(mX - mSizeX / 2 + mHead.x + mHead.sizeX / 2
 		, mY - mSizeY / 2 + mHead.y + mHead.sizeY / 2, mHead.sizeX, mHead.sizeY);
 
-	// ¸Ó¸®
-	if (mBackHair.move)		// trueÀÏ ¶§ ³»·Á¿À´Â ¸ğ¼Ç
+	// ë¨¸ë¦¬
+	if (mBackHair.move)		// trueì¼ ë•Œ ë‚´ë ¤ì˜¤ëŠ” ëª¨ì…˜
 	{
 		mBackHair.moveTime += TIME->DeltaTime();
 
@@ -240,8 +228,8 @@ void Boss::MotionFrame()
 	mBackHair.rc = RectMakeCenter(mX - mSizeX / 2 + mBackHair.x + mBackHair.sizeX / 2
 		, mY - mSizeY / 2 + mBackHair.y + mBackHair.sizeY / 2, mBackHair.sizeX, mBackHair.sizeY);
 
-	// °¡½¿
-	if (mChest.move)		// trueÀÏ ¶§ ³»·Á¿À´Â ¸ğ¼Ç
+	// ê°€ìŠ´
+	if (mChest.move)		// trueì¼ ë•Œ ë‚´ë ¤ì˜¤ëŠ” ëª¨ì…˜
 	{
 		mChest.moveTime += TIME->DeltaTime();
 
@@ -279,8 +267,8 @@ void Boss::MotionFrame()
 	mChest.rc = RectMakeCenter(mX - mSizeX / 2 + mChest.x + mChest.sizeX / 2
 		, mY - mSizeY / 2 + mChest.y + mChest.sizeY / 2, mChest.sizeX, mChest.sizeY);
 
-	// ÆÈ
-	if (mLeftArm.move)		// trueÀÏ ¶§ ³»·Á¿À´Â ¸ğ¼Ç
+	// íŒ”
+	if (mLeftArm.move)		// trueì¼ ë•Œ ë‚´ë ¤ì˜¤ëŠ” ëª¨ì…˜
 	{
 		mLeftArm.moveTime += TIME->DeltaTime();
 
@@ -322,8 +310,8 @@ void Boss::MotionFrame()
 	mRightArm.rc = RectMakeCenter(mX - mSizeX / 2 + mRightArm.x + mRightArm.sizeX / 2
 		, mY - mSizeY / 2 + mRightArm.y + mRightArm.sizeY / 2, mRightArm.sizeX, mRightArm.sizeY);
 
-	// ´«¾Ë, ´«µ¿ÀÚ
-	if (mEyes.move)		// trueÀÏ ¶§ ³»·Á¿À´Â ¸ğ¼Ç
+	// ëˆˆì•Œ, ëˆˆë™ì
+	if (mEyes.move)		// trueì¼ ë•Œ ë‚´ë ¤ì˜¤ëŠ” ëª¨ì…˜
 	{
 		mEyes.moveTime += TIME->DeltaTime();
 

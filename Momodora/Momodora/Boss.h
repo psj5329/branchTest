@@ -28,6 +28,7 @@ class Boss : public GameObject
 	int mFrameX;				// 머리 프레임
 	float mFrameTime;
 
+	int test;
 
 	bool mIsHit;				// 피격 당했는지
 	float mHitFrameTime;
