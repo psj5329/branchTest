@@ -19,6 +19,8 @@ void Boss::Init()
 
 	mFrameX = 0;
 	mFrameTime = 0.f;
+
+	test = 0;
 }
 
 void Boss::Release()
@@ -27,6 +29,8 @@ void Boss::Release()
 
 void Boss::Update()
 {
+	test++;
+
 	MotionFrame();
 
 	mFrameTime += TIME->DeltaTime();
