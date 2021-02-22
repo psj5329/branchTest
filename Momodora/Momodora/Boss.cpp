@@ -27,6 +27,7 @@ void Boss::Release()
 
 void Boss::Update()
 {
+<<<<<<< Updated upstream
 	MotionFrame();
 
 	mFrameTime += TIME->DeltaTime();
@@ -38,6 +39,9 @@ void Boss::Update()
 		if (mFrameX >= 5)
 			mFrameX = 0;
 	}
+=======
+	OBJECTMANAGER->Update();
+>>>>>>> Stashed changes
 }
 
 void Boss::Render(HDC hdc)
