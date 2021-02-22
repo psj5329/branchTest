@@ -12,10 +12,13 @@ void Scene01::Release()
 
 void Scene01::Update()
 {
+	OBJECTMANAGER->Update();
 }
 
 void Scene01::Render(HDC hdc)
 {
+	OBJECTMANAGER->Render(hdc);
+
 	wstring str = L"æ¿1 ∆‰¿Ã¡ˆ";
 	TextOut(hdc, WINSIZEX / 2, WINSIZEY / 2, str.c_str(), (int)str.length());
 }
