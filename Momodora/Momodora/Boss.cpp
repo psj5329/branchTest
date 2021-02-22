@@ -29,8 +29,6 @@ void Boss::Release()
 
 void Boss::Update()
 {
-	test++;
-
 	MotionFrame();
 
 	mFrameTime += TIME->DeltaTime();
@@ -42,6 +40,8 @@ void Boss::Update()
 		if (mFrameX >= 5)
 			mFrameX = 0;
 	}
+
+	test++;
 }
 
 void Boss::Render(HDC hdc)
