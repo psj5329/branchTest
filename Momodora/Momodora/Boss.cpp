@@ -29,6 +29,19 @@ void Boss::Release()
 
 void Boss::Update()
 {
+	MotionFrame();
+
+	mFrameTime += TIME->DeltaTime();
+	if (mFrameTime >= 0.2f)
+	{
+		mFrameTime = 0.f;
+		mFrameX++;
+
+		if (mFrameX >= 5)
+			mFrameX = 0;
+	}
+
+	test++;
 	OBJECTMANAGER->Update();
 }
 
